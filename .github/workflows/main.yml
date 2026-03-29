@@ -16,17 +16,17 @@ jobs:
       - name: Check if index.html exists
         run: |
           if [ -f index.html ]; then
-            echo "File exists ✅"
+            echo "File exists "
           else
-            echo "File missing ❌"
+            echo "File missing "
             exit 1
           fi
 
       - name: Check file content
         run: |
           if grep -q "DevOps" index.html; then
-            echo "Content check passed ✅"
+            echo "Content check passed "
           else
-            echo "Content missing ❌"
+            echo "Content missing "
             exit 1
           fi
