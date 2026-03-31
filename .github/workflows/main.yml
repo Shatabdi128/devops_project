@@ -27,6 +27,24 @@ jobs:
           if grep -q "DevOps" index.html; then
             echo "Content check passed "
           else
-            echo "Content missing "
+            echo "Content missing git add ."
+            exit 1
+          fi
+
+      - name: Check file is not empty
+        run: |
+          if [ -s index.html ]; then
+            echo "File is not empty"
+          else
+            echo "File is empty"
+            exit 1
+          fi
+
+      - name: Check title tag
+        run: |
+          if grep -q "<title>" index.html; then
+            echo "Title tag found"
+          else
+            echo "Title missing"
             exit 1
           fi
