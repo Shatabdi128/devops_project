@@ -24,7 +24,7 @@ jobs:
 
       - name: Check file content
         run: |
-          if grep -q "DevOps" index.html; then
+          if grep -q "Student" index.html; then
             echo "Content check passed "
           else
             echo "Content missing git add ."
