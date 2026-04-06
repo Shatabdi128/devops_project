@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #81d4fa, #fff59d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+        .login-form fieldset {
+            border: 2px solid #ccc;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+        }
+        legend {
+            font-size: 24px;
+            font-family: 'Almendra', serif;
+            font-weight: bold;
+            padding: 0 15px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+            position: relative;
+            padding-bottom: 18px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .error-message {
+            color: #e5015c;
+            font-size: 0.8em;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: none;
+        }
+        input.invalid {
+            border-color: #e5015c;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .login-btn {
+            background: #e5015c;
+            color: white;
+            margin-bottom: 15px;
+        }
+        .login-btn:hover {
+            background: #c4004e;
+        }
+        .signup-link {
+            font-size: 12px;
+            color: grey;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .signup-link a {
+            text-decoration: underline;
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <fieldset>
+                <legend>Login</legend>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Enter your username">
+                        <span class="error-message" id="usernameError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password">
+                        <span class="error-message" id="passwordError"></span>
+                    </div>
+                    <button type="submit" class="btn login-btn">LOGIN</button>
+
+                    <div class="signup-link">
+                        Don't have an account? <a href="signup.html">Sign Up</a>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            // Reset previous errors
+            document.getElementById('usernameError').style.display = 'none';
+            document.getElementById('passwordError').style.display = 'none';
+            document.getElementById('username').classList.remove('invalid');
+            document.getElementById('password').classList.remove('invalid');
+            
+            // Simple validation - in a real app you would check against a database
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            if (username === '') {
+                document.getElementById('usernameError').textContent = 'Username is required';
+                document.getElementById('usernameError').style.display = 'block';
+                document.getElementById('username').classList.add('invalid');
+                return;
+            }
+            
+            if (password === '') {
+                document.getElementById('passwordError').textContent = 'Password is required';
+                document.getElementById('passwordError').style.display = 'block';
+                document.getElementById('password').classList.add('invalid');
+                return;
+            }
+            
+            // If validation passes, redirect to user.html
+            window.location.href = 'user.html';
+        });
+    </script>
+</body>
+</html>

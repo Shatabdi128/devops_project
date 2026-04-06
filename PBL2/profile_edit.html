@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile | Unlock</title>
+    <style>
+        /* Reuse your existing styles */
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #81d4fa, #fff59d);
+            color: #333;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 40px;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo img { height: 50px; }
+
+        /* Profile Editor Container */
+        .profile-edit-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-edit-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e5015c;
+            padding-bottom: 20px;
+        }
+
+        .profile-edit-header h1 {
+            font-size: 36px;
+            color: #4B0082;
+            margin-bottom: 5px;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .error-message {
+            color: #e5015c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Skill Tags */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            background: #e5015c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-tag button {
+            background: none;
+            border: none;
+            color: white;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        /* Action Buttons (match your existing button styles) */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #e5015c;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: yellow;
+            color: black;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="home.html"><img src="C:\Users\Lenovo\OneDrive\Pictures\logo.png" alt="Unlock Logo"></a>
+        </div>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="mentor_list.html">Mentors</a></li>
+                <li><a href="alumni_list.html">Alumni</a></li>
+                <li><a href="user.html">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profile Edit Form -->
+    <div class="profile-edit-container">
+        <div class="profile-edit-header">
+            <h1>Edit Profile</h1>
+        </div>
+
+        <form id="profileForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" class="form-control" value="Shatabdi Saha">
+                <div id="nameError" class="error-message">Name is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" value="shatabdi.saha@student.edu">
+                <div id="emailError" class="error-message">Valid email is required</div>
+            </div>
+
+            <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea id="bio" class="form-control" rows="4">Computer and Communication Engineering student passionate about innovative solutions.</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="skills">Skills (Add one at a time)</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="skillInput" class="form-control" placeholder="e.g., Web Development">
+                    <button type="button" id="addSkill" class="btn-secondary" style="padding: 0 15px;">+ Add</button>
+                </div>
+                <div class="skill-tags" id="skillTags">
+                    <span class="skill-tag">Web Development <button onclick="removeSkill(this)">×</button></span>
+                    <span class="skill-tag">UI/UX Design <button onclick="removeSkill(this)">×</button></span>
+                    <span class="skill-tag">Python <button onclick="removeSkill(this)">×</button></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" class="form-control" value="Jaipur, India">
+            </div>
+
+            <div class="action-buttons">
+                <button type="button" id="cancelBtn" class="btn-secondary">Cancel</button>
+                <button type="submit" class="btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Skill Management
+        document.getElementById('addSkill').addEventListener('click', function() {
+            const skillInput = document.getElementById('skillInput');
+            if (skillInput.value.trim() !== '') {
+                const skillTag = document.createElement('span');
+                skillTag.className = 'skill-tag';
+                skillTag.innerHTML = `${skillInput.value.trim()} <button onclick="removeSkill(this)">×</button>`;
+                document.getElementById('skillTags').appendChild(skillTag);
+                skillInput.value = '';
+            }
+        });
+
+        function removeSkill(button) {
+            button.parentElement.remove();
+        }
+
+        // Form Validation
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+
+            // Name validation
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            if (name.value.trim() === '') {
+                nameError.style.display = 'block';
+                isValid = false;
+            } else {
+                nameError.style.display = 'none';
+            }
+
+            // Email validation
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                emailError.style.display = 'block';
+                isValid = false;
+            } else {
+                emailError.style.display = 'none';
+            }
+
+            if (isValid) {
+                alert('Profile updated successfully!');
+                // In a real app, you would submit to a server here
+            }
+        });
+
+        // Cancel button
+        document.getElementById('cancelBtn').addEventListener('click', function() {
+            if (confirm('Discard changes?')) {
+                window.location.href = 'user.html';
+            }
+        });
+    </script>
+</body>
+</html>

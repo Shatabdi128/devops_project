@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Network</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #81d4fa, #fff59d);
+            color: #333;
+        }
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 40px;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            font-family: 'Times New Roman', serif;
+            padding: 10px 15px;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-links a.current {
+            color: #e5015c;
+            font-weight: bold;
+        }
+        .nav-links a.current::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 15px;
+            right: 15px;
+            height: 3px;
+            background-color: #e5015c;
+            border-radius: 3px;
+        }
+        .nav-links a:hover {
+            color: #e5015c;
+        }
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .page-title {
+            font-size: 42px;
+            color: #4B0082;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .profile-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        .profile-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #81d4fa;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+        .profile-name {
+            font-size: 24px;
+            color: #4B0082;
+            margin-bottom: 5px;
+        }
+        .profile-title {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .profile-detail {
+            margin-bottom: 8px;
+        }
+        .detail-label {
+            font-weight: bold;
+            display: inline-block;
+            width: 120px;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        .skill {
+            background: #81d4fa;
+            color: black;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        .rating {
+            color: #e5015c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="C:\Users\Lenovo\OneDrive\Pictures\logo.png" alt="Unlock Logo">
+        </div>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="mentor_list.html">Mentors</a></li>
+                <li><a href="alumni_list.html" class="current">Alumni</a></li> <!-- Updated link -->
+                <li><a href="user.html">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container">
+        <h1 class="page-title">Alumni Network</h1>
+        
+        <div class="profile-list">
+            <!-- Alumni 1 -->
+            <a href="alumni.html" class="profile-card">
+                <div class="profile-name">Priya Patel</div>
+                <div class="profile-title">Senior Software Engineer | Class of 2020</div>
+                <div class="profile-detail">
+                    <span class="detail-label">Current Role:</span> TechSolutions
+                </div>
+                <div class="skills">
+                    <span class="skill">Full Stack Development</span>
+                    <span class="skill">Cloud Computing</span>
+                    <span class="skill">Career Coaching</span>
+                </div>
+                <div class="profile-detail">
+                    <span class="detail-label">Location:</span> Bangalore, India
+                </div>
+                <div class="profile-detail">
+                    <span class="detail-label">Rating:</span>
+                    <span class="rating">★★★★★ (4.9/5)</span>
+                </div>
+            </a>
+            
+            <!-- Alumni 2 -->
+            <a href="alumni-amit.html" class="profile-card">
+                <div class="profile-name">Amit Sharma</div>
+                <div class="profile-title">Mobile Developer | Class of 2019</div>
+                <div class="profile-detail">
+                    <span class="detail-label">Current Role:</span> AppWorks
+                </div>
+                <div class="skills">
+                    <span class="skill">Android</span>
+                    <span class="skill">iOS</span>
+                    <span class="skill">Flutter</span>
+                </div>
+                <div class="profile-detail">
+                    <span class="detail-label">Location:</span> Mumbai, India
+                </div>
+                <div class="profile-detail">
+                    <span class="detail-label">Rating:</span>
+                    <span class="rating">★★★★☆ (4.7/5)</span>
+                </div>
+            </a>
+            
+            <!-- Alumni 3 -->
+            <a href="alumni-sanjay.html" class="profile-card">
+                <div class="profile-name">Sanjay Gupta</div>
+                <div class="profile-title">Data Scientist | Class of 2018</div>
+                <div class="profile-detail">
+                    <span class="detail-label">Current Role:</span> AnalyticsPro
+                </div>
+                <div class="skills">
+                    <span class="skill">Machine Learning</span>
+                    <span class="skill">Python</span>
+                    <span class="skill">Big Data</span>
+                </div>
+                <div class="profile-detail">
+                    <span class="detail-label">Location:</span> Hyderabad, India
+                </div>
+                <div class="profile-detail">
+                    <span class="detail-label">Rating:</span>
+                    <span class="rating">★★★★★ (4.8/5)</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

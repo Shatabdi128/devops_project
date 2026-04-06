@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Profile</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #81d4fa, #fff59d);
+            color: #333;
+        }
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 40px;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            font-family: 'Times New Roman', serif;
+            padding: 10px 15px;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-links a.current {
+            color: #e5015c;
+            font-weight: bold;
+        }
+        .nav-links a.current::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 15px;
+            right: 15px;
+            height: 3px;
+            background-color: #e5015c;
+            border-radius: 3px;
+        }
+        .nav-links a:hover {
+            color: #e5015c;
+        }
+        /* Profile Content */
+        .profile-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e5015c;
+            padding-bottom: 20px;
+        }
+        .profile-header h1 {
+            font-size: 36px;
+            color: #4B0082;
+            margin-bottom: 5px;
+        }
+        .profile-header h2 {
+            font-size: 20px;
+            color: #666;
+            font-weight: normal;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: #e5015c;
+            color: white;
+        }
+        .btn-secondary {
+            background: yellow;
+            color: black;
+        }
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h3 {
+            font-size: 24px;
+            color: #4B0082;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        .info-label {
+            font-weight: bold;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 20px;
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e5015c;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 11px;
+            bottom: -5px;
+            width: 2px;
+            background: #ccc;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .timeline-date {
+            font-weight: bold;
+            color: #666;
+        }
+        .timeline-title {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .badge {
+            background: #e5015c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="C:\Users\Lenovo\OneDrive\Pictures\logo.png" alt="Unlock Logo">
+        </div>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="mentor_list.html">Mentors</a></li>
+                <li><a href="alumni.html" class="current">Alumni</a></li>
+                <li><a href="user.html">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>Priya Patel</h1>
+            <h2>@alumniPriya</h2>
+            <div class="action-buttons">
+                <button class="btn btn-primary">Connect</button>
+                <button class="btn btn-secondary">Request Guidance</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>About Me</h3>
+            <p>Hello! I'm Priya Patel, a Computer Engineering graduate (Class of 2020) now working as a Senior Software Engineer at TechSolutions. I'm passionate about helping current students navigate their academic and career paths based on my own experiences.</p>
+            
+            <div class="info-grid">
+                <div class="info-label">Degree</div>
+                <div>B.Tech in Computer Engineering (2020)</div>
+                
+                <div class="info-label">Current Role</div>
+                <div>Senior Software Engineer at TechSolutions</div>
+                
+                <div class="info-label">Email</div>
+                <div>priya.patel@email.com</div>
+                
+                <div class="info-label">Location</div>
+                <div>Bangalore, India</div>
+                
+                <div class="info-label">Skills</div>
+                <div class="badges">
+                    <span class="badge">Full Stack Development</span>
+                    <span class="badge">Cloud Computing</span>
+                    <span class="badge">Data Structures</span>
+                    <span class="badge">Career Coaching</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Career Journey</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2020 - Present</div>
+                    <div class="timeline-title">Senior Software Engineer, TechSolutions</div>
+                    <p>Leading development teams building enterprise SaaS solutions. Promoted from Associate Engineer in 2022.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2019 (Summer)</div>
+                    <div class="timeline-title">Software Engineering Intern, DataSystems</div>
+                    <p>Developed backend APIs for data processing pipeline, received full-time offer (declined).</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2016 - 2020</div>
+                    <div class="timeline-title">B.Tech Computer Engineering, MUJ</div>
+                    <p>Graduated with Honors. Active in coding competitions and ACM student chapter.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Alumni Engagement</h3>
+            <div class="info-grid">
+                <div class="info-label">Mentorship</div>
+                <div>Available for 2 students per semester</div>
+                
+                <div class="info-label">Areas of Advice</div>
+                <div>Tech Interviews, Career Growth, Work-Life Balance</div>
+                
+                <div class="info-label">Campus Visits</div>
+                <div>Twice yearly for recruitment and tech talks</div>
+                
+                <div class="info-label">Student Connections</div>
+                <div>25+ current students mentored</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

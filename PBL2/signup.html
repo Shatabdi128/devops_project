@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #81d4fa, #fff59d);
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 100vh;
+      padding: 50px;
+      box-sizing: border-box;
+    }
+    .unlock-section {
+      width: 45%;
+      color: black;
+      padding: 0 30px;
+    }
+    .unlock-section h1 {
+      font-size: 70px;
+      font-weight: bold;
+      color: #4B0082;
+      margin-bottom: 30px;
+    }
+    .unlock-section ul {
+      font-size: 20px;
+      padding-left: 30px;
+      line-height: 1.6;
+    }
+    .unlock-section li {
+      margin-bottom: 15px;
+    }
+    .login-container {
+      width: 45%;
+      display: flex;
+      justify-content: center;
+    }
+    .login-form {
+      width: 100%;
+      max-width: 450px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    fieldset {
+      border: 2px solid #ccc;
+      padding: 25px;
+      border-radius: 8px;
+      margin: 0;
+    }
+    legend {
+      font-size: 24px;
+      font-family: 'Almendra', serif;
+      font-weight: bold;
+      padding: 0 15px;
+      margin: 0 auto;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      width: 100%;
+      position: relative;
+      padding-bottom: 18px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+    .phone-input {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .phone-input span {
+      margin-right: 10px;
+      font-weight: bold;
+      white-space: nowrap;
+      background-color: #eee;
+      padding: 10px 8px;
+      border: 1px solid #ccc;
+      border-right: none;
+      border-radius: 5px 0 0 5px;
+      font-size: 15px;
+      color: #555;
+    }
+    .phone-input input {
+      flex-grow: 1;
+      border-radius: 0 5px 5px 0;
+    }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+      background: #e5015c;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+    .error-message {
+      color: #e5015c;
+      font-size: 0.8em;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: none;
+    }
+    input.invalid {
+      border-color: #e5015c;
+      background-color: #fff0f5;
+    }
+    .phone-input input.invalid {
+      border-left: 1px solid #e5015c;
+    }
+    @media (max-width: 1200px) {
+      .container {
+        flex-direction: column;
+        padding: 30px;
+      }
+      .unlock-section, .login-container {
+        width: 100%;
+        max-width: 600px;
+      }
+      .unlock-section {
+        margin-bottom: 40px;
+        text-align: center;
+      }
+      .unlock-section h1 {
+        font-size: 50px;
+      }
+      .unlock-section ul {
+        text-align: left;
+        display: inline-block;
+        font-size: 18px;
+      }
+      .login-form {
+        padding: 20px;
+      }
+    }
+    @media (max-width: 768px) {
+      .unlock-section h1 {
+        font-size: 40px;
+      }
+      .unlock-section ul {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="unlock-section">
+      <h1>Unlock</h1>
+      <ul>
+        <li>Addressing Student Career Indecision</li>
+        <li>Bridging the Gap Between Education and Employment</li>
+        <li>Promoting Equity and Access to Career Guidance</li>
+        <li>Enhancing Student Engagement and Motivation</li>
+        <li>Developing a user-friendly system for accessing and sharing study materials.</li>
+        <li>Implementing a career recommendation system for tailored guidance.</li>
+        <li>Facilitating mentor-student interactions for career support.</li>
+        <li>Providing a centralized job and internship listing feature.</li>
+      </ul>
+    </div>
+
+    <div class="login-container">
+      <div class="login-form">
+        <fieldset>
+          <legend>Sign Up</legend>
+          <form id="signupForm" novalidate>
+            <div class="form-group">
+              <label for="name">Student Name</label>
+              <input type="text" id="name" placeholder="Enter your name" />
+              <span class="error-message" id="nameError"></span>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <div class="phone-input">
+                <span>+91</span>
+                <input type="tel" id="phone" placeholder="Enter 10-digit number" />
+              </div>
+              <span class="error-message" id="phoneError"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email ID</label>
+              <input type="email" id="email" placeholder="Enter your email" />
+              <span class="error-message" id="emailError"></span>
+            </div>
+            <button type="button" id="submitBtn" class="btn">Submit</button>
+          </form>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const nameInput = document.getElementById('name');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const nameError = document.getElementById('nameError');
+    const phoneError = document.getElementById('phoneError');
+    const emailError = document.getElementById('emailError');
+    const submitBtn = document.getElementById('submitBtn');
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\d{10}$/;
+
+    submitBtn.addEventListener('click', function () {
+      let valid = true;
+      resetErrors();
+
+      if (nameInput.value.trim() === '') {
+        showError(nameInput, nameError, 'Student name is required.');
+        valid = false;
+      }
+
+      const phoneValue = phoneInput.value.trim();
+      if (phoneValue === '') {
+        showError(phoneInput, phoneError, 'Phone number is required.');
+        valid = false;
+      } else if (!phoneRegex.test(phoneValue)) {
+        showError(phoneInput, phoneError, 'Enter a valid 10-digit number.');
+        valid = false;
+      }
+
+      const emailValue = emailInput.value.trim();
+      if (emailValue === '') {
+        showError(emailInput, emailError, 'Email is required.');
+        valid = false;
+      } else if (!emailRegex.test(emailValue)) {
+        showError(emailInput, emailError, 'Enter a valid email.');
+        valid = false;
+      }
+
+      if (valid) {
+        alert('Sign up successful! Redirecting to login page...');
+        window.location.href = 'login.html'; // Redirect to login page
+      }
+    });
+
+    function showError(input, errorSpan, message) {
+      input.classList.add('invalid');
+      errorSpan.textContent = message;
+      errorSpan.style.display = 'block';
+    }
+
+    function resetErrors() {
+      [nameInput, phoneInput, emailInput].forEach(input => input.classList.remove('invalid'));
+      [nameError, phoneError, emailError].forEach(span => {
+        span.textContent = '';
+        span.style.display = 'none';
+      });
+    }
+  </script>
+</body>
+</html>

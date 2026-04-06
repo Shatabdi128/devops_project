@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentors List</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #81d4fa, #fff59d);
+            color: #333;
+        }
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 40px;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            font-family: 'Times New Roman', serif;
+            padding: 10px 15px;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-links a.current {
+            color: #e5015c;
+            font-weight: bold;
+        }
+        .nav-links a.current::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 15px;
+            right: 15px;
+            height: 3px;
+            background-color: #e5015c;
+            border-radius: 3px;
+        }
+        .nav-links a:hover {
+            color: #e5015c;
+        }
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .page-title {
+            font-size: 42px;
+            color: #4B0082;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .profile-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        .profile-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #e5015c;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+        .profile-name {
+            font-size: 24px;
+            color: #4B0082;
+            margin-bottom: 5px;
+        }
+        .profile-title {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .profile-detail {
+            margin-bottom: 8px;
+        }
+        .detail-label {
+            font-weight: bold;
+            display: inline-block;
+            width: 120px;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        .skill {
+            background: #e5015c;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        .rating {
+            color: #e5015c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="C:\Users\Lenovo\OneDrive\Pictures\logo.png" alt="Unlock Logo">
+        </div>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="mentors.html" class="current">Mentors</a></li>
+                <li><a href="alumni_list.html">Alumni</a></li>
+                <li><a href="user.html">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container">
+        <h1 class="page-title">Our Mentors</h1>
+        
+        <div class="profile-list">
+            <!-- Mentor 1 -->
+            <a href="mentor.html" class="profile-card">
+                <div class="profile-name">Dr. Vijay Sharma</div>
+                <div class="profile-title">Professor of Computer Engineering</div>
+                <div class="profile-detail">
+                    <span class="detail-label">Experience:</span> Expert (15+ years)
+                </div>
+                <div class="skills">
+                    <span class="skill">Artificial Intelligence</span>
+                    <span class="skill">Machine Learning</span>
+                    <span class="skill">Career Guidance</span>
+                </div>
+                <div class="profile-detail">
+                    <span class="detail-label">Availability:</span> Mon-Fri, 3pm-6pm
+                </div>
+                <div class="profile-detail">
+                    <span class="detail-label">Rating:</span>
+                    <span class="rating">★★★★★ (4.9/5)</span>
+                </div>
+            </a>
+            
+            <!-- Mentor 2 -->
+            <a href="mentor-neha.html" class="profile-card">
+                <div class="profile-name">Neha Patel</div>
+                <div class="profile-title">Senior Software Engineer</div>
+                <div class="profile-detail">
+                    <span class="detail-label">Experience:</span> Expert (8+ years)
+                </div>
+                <div class="skills">
+                    <span class="skill">Full Stack Development</span>
+                    <span class="skill">System Design</span>
+                    <span class="skill">Interview Prep</span>
+                </div>
+                <div class="profile-detail">
+                    <span class="detail-label">Availability:</span> Weekends, 10am-2pm
+                </div>
+                <div class="profile-detail">
+                    <span class="detail-label">Rating:</span>
+                    <span class="rating">★★★★☆ (4.7/5)</span>
+                </div>
+            </a>
+            
+            <!-- Mentor 3 -->
+            <a href="mentor-rajiv.html" class="profile-card">
+                <div class="profile-name">Rajiv Mehta</div>
+                <div class="profile-title">Product Manager</div>
+                <div class="profile-detail">
+                    <span class="detail-label">Experience:</span> Professional (5+ years)
+                </div>
+                <div class="skills">
+                    <span class="skill">Product Management</span>
+                    <span class="skill">Startup Guidance</span>
+                    <span class="skill">Career Growth</span>
+                </div>
+                <div class="profile-detail">
+                    <span class="detail-label">Availability:</span> Thu-Sat, 6pm-9pm
+                </div>
+                <div class="profile-detail">
+                    <span class="detail-label">Rating:</span>
+                    <span class="rating">★★★★★ (4.8/5)</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
